@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>exercice_student</artifactId>
+    <artifactId>SpringExo03</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>02_exercice_student</name>
     <description>02_exercice_student</description>

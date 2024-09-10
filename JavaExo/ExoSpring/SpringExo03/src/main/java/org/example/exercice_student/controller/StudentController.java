@@ -1,12 +1,13 @@
 package org.example.exercice_student.controller;
 
+import org.example.exercice_student.model.Student;
 import org.example.exercice_student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class StudentController {
@@ -23,8 +24,18 @@ public class StudentController {
     }
 
     @RequestMapping("/formulaire")
-    public String formAddStudent(){
+    public String formAddStudent(Model model){
+        model.addAttribute("student", new Student());
         return "form";
+    }
+
+    @PostMapping("/add")
+    public String submitFormAddStudent(@ModelAttribute("student") Student student){
+        studentService.createStudent(student.getLastname()
+                ,student.getFirstname()
+                ,student.getAge()
+                ,student.getEmail());
+        return "redirect:/students";
     }
 
     @RequestMapping("/students") // /students?search=Toto
@@ -42,4 +53,20 @@ public class StudentController {
         model.addAttribute("student", studentService.getStudentById(id));
         return "detail";
     }
+
+
+    @RequestMapping("/search") // /search?lastname=Toto
+    public String searchStudentByName(@RequestParam(name = "lastname", required = false) String lastname, Model model) {
+        List<Student> students = studentService.searchStudents(lastname);
+
+        if (students.isEmpty()) {
+            model.addAttribute("message", "Aucun étudiant trouvé avec le nom : " + lastname);
+        } else {
+            model.addAttribute("students", students);
+        }
+
+        return "search"; // Redirige vers la vue search.html
+    }
+
+
 }

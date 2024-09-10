@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+
+<div class="container">
+    <h1 class="mt-5">Ajouter un étudiant</h1>
+    <hr>
+
+    <form th:action="@{/add}" method="post">
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label">Âge</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-success">Valider</button>
+        <a th:href="@{/}" class="btn btn-secondary">Retour</a>
+    </form>
+</div>
+</body>
+</html>

@@ -20,8 +20,8 @@
             </thead>
             <tbody th:each="s : ${students}">
             <td th:text="${s.getId()}"></td>
-            <td th:text="${s.getFirstname()}"></td>
             <td th:text="${s.getLastname()}"></td>
+            <td th:text="${s.getFirstname()}"></td>
             <td><a th:href="@{/student/{id}(id=${s.getId()})}" class="btn btn-outline-info">Détails</a></td>
             </tbody>
         </table>

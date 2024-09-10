@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Résultat(s)</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<div class="container">
+    <h1>Résultat de la recherche</h1>
+
+<!--    Si aucun étudiant trouvé :-->
+    <div th:if="${message}" class="alert alert-warning" role="alert">
+        <span th:text="${message}"></span>
+    </div>
+
+<!--    Si étudiant trouvé : -->
+    <table class="table" th:if="${students != null}">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Détails</th>
+        </tr>
+        </thead>
+        <tbody th:each="s : ${students}">
+        <tr>
+            <td th:text="${s.getId()}"></td>
+            <td th:text="${s.getLastname()}"></td>
+            <td th:text="${s.getFirstname()}"></td>
+            <td><a th:href="@{/student/{id}(id=${s.getId()})}" class="btn btn-outline-info">Détails</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

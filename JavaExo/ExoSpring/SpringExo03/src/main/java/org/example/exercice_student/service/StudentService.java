@@ -8,17 +8,21 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    private List<Student> students = new ArrayList<>();
+    private final List<Student> students = new ArrayList<>();
     private Long currentId = 1L;
 
     public StudentService(){
-        Student student = new Student(currentId++, "Toto", "Doe", 25, "toto@email.fr");
+        Student student = new Student(currentId++, "Macfly", "Marty", 25, "martymac@email.fr");
         students.add(student);
+
     }
 
-//    public Student createStudent(){
-//
-//    }
+
+    public Student createStudent(String lastname, String firstname, int age, String email) {
+        Student student = new Student(currentId++, lastname, firstname, age, email);
+        students.add(student);
+        return student;
+    }
 
     public List<Student> getAllStudents(){
         return students;
