@@ -1,0 +1,7 @@
+Nécessaire : 
+
+un @entity
+un @Id
+et un constructeur vide
+
+(vérifier si constructeur vide nécessaire avec Lombok)

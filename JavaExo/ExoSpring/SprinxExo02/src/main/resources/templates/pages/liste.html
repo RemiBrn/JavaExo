@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste</title>
+    <span th:replace="~{pages/inscription :: bootstrapImports}"></span>
+
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5 text-center">Liste des étudiants</h1>
+    <hr>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Détails</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="e : ${etudiants}">
+            <td th:text="${e.firstname}"></td>
+            <td th:text="${e.lastname}"></td>
+            <td>
+                <a th:href="@{/details/{lastname}(lastname=${e.lastname})}" class="btn btn-info">Voir détails</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}" class="btn btn-secondary">Retour</a>
+</div>
+</body>
+</html>

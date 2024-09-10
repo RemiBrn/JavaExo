@@ -1,0 +1,14 @@
+Dépendances à ajouter lors d'un nouveau projet
+
+thymeleaf
+Spring boot devtools
+Lombok
+Spring Web
+
+----------------------------
+
+|application.properties: |
+
+spring.application.name=spring_demo_base_01
+server.port=8081
+

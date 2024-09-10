@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Détails</title>
+</head>
+
+<body>
+<h1>Détails de la tâche</h1>
+<p>Nom: <span th:text="${todo.getName()}"></span></p>
+<p>Description: <span th:text="${todo.getDescription()}"></span></p>
+<p>Status: <span th:text="${todo.isDone} ? 'Fini' : 'En cours'"></span></p>
+<a href="/home">Retour</a>
+
+
+</body>
+</html>

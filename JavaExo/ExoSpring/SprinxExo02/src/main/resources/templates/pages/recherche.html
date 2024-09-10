@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5">Recherche d'un étudiant</h1>
+    <hr>
+
+    <form th:action="@{/recherche}" method="get">
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Nom de famille</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" required>
+        </div>
+        <button type="submit" class="btn btn-info">Rechercher</button>
+        <a th:href="@{/}" class="btn btn-secondary">Retour à l'accueil</a>
+    </form>
+
+    <div th:if="${etudiants != null}">
+        <h2 class="mt-5">Résultats de la recherche</h2>
+        <ul class="list-group">
+            <li class="list-group-item" th:each="etudiant : ${etudiants}">
+                <span th:text="${etudiant.firstname} + ' ' + ${etudiant.lastname}"></span>
+                <a th:href="@{/details/{lastname}(lastname=${etudiant.lastname})}" class="btn btn-info">Voir détails</a>
+            </li>
+        </ul>
+    </div>
+
+    <div th:if="${etudiants == null}">
+        <p>Aucun étudiant trouvé</p>
+    </div>
+</div>
+
+</body>
+</html>

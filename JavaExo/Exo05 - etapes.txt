@@ -1,0 +1,9 @@
+1. créer entités
+2. créer une session (SessionFactorySingleton ou HibernateSession)
+3. créer le BaseRepository avec classe générique <T>
+4. créer le PatientRepository et les autres repository nécessaires
+5. créer les services 
+6. créer le LoginService
+7. créer Servlet 
+	(req.getParameter("id") !=null 
+	Le "id" fait référence au "id" qui est dans l'url

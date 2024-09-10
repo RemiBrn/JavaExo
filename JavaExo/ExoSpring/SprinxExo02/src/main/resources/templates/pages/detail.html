@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails</title>
+    <span th:replace="~{pages/inscription :: bootstrapImports}"></span>
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-5 text-center">Détails de l'étudiant</h1>
+    <hr>
+
+    <ul class="list-group">
+        <li class="list-group-item">Prénom : <span th:text="${etudiant.firstname}"></span></li>
+        <li class="list-group-item">Nom : <span th:text="${etudiant.lastname}"></span></li>
+        <li class="list-group-item">Âge : <span th:text="${etudiant.age}"></span></li>
+        <li class="list-group-item">Email : <span th:text="${etudiant.email}"></span></li>
+    </ul>
+
+    <a th:href="@{/liste}" class="btn btn-secondary mt-3">Retour à la liste des étudiants</a>
+    <a th:href="@{/}" class="btn btn-secondary mt-3">Home</a>
+</div>
+</body>
+</html>
