@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulaire</title>
+</head>
+<body>
+<h1>Ajouter un contact</h1>
+<form th:action="@{/add}" th:object="${contact}" method="post">
+  <div>
+    <label for="firstname">Prénom</label>
+    <input type="text" id="firstname" th:field="*{firstname}">
+    <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
+  </div>
+  <div>
+    <label for="lastname">Nom</label>
+    <input type="text" id="lastname" th:field="*{lastname}">
+    <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
+  </div>
+  <div>
+    <label for="age">Age</label>
+    <input type="text" id="age" th:field="*{age}">
+    <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
+  </div>
+  <!-- Correction : utilisation du bouton valide -->
+  <button type="submit">Valider</button>
+</form>
+
+</body>
+</html>
