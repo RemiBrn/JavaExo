@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<div class="container">
+    <h1>Détails de l'étudiant</h1>
+    <hr>
+    <table class="table table-hover table-bordered" th:if="${student != null}">
+        <tbody>
+        <tr>
+            <td class="bg-light font-weight-bold">Nom</td>
+            <td th:text="${student.getLastname()}"></td>
+        </tr>
+        <tr>
+            <td class="bg-light font-weight-bold">Prénom</td>
+            <td th:text="${student.getFirstname()}"></td>
+        </tr>
+        <tr>
+            <td class="bg-light font-weight-bold">Âge</td>
+            <td th:text="${student.getAge()}"></td>
+        </tr>
+        <tr>
+            <td class="bg-light font-weight-bold">Email</td>
+            <td th:text="${student.getEmail()}"></td>
+        </tr>
+        <tr>
+            <td class="bg-light font-weight-bold">Action</td>
+            <td>
+                <a th:href="@{/update(studentId=${student.getId()})}" class="btn btn-outline-primary">Modifier</a>
+                <a th:href="@{/delete(studentId=${student.getId()})}" class="btn btn-outline-danger">Supprimer</a>
+                <a th:href="@{/students}" class="btn btn-outline-secondary">Retour</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

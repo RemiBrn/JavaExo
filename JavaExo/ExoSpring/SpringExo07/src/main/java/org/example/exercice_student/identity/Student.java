@@ -1,6 +1,6 @@
-package org.example.exercice_student.model;
+package org.example.exercice_student.identity;
 
-import jakarta.validation.Valid;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,11 @@ import org.example.exercice_student.validation.MyValid;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name= "Etudiant")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Ce champ ne peut pas être vide ")
     @MyValid

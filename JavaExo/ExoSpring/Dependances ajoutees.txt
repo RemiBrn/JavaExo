@@ -15,7 +15,8 @@ Spring Web
 
 spring.application.name=spring_demo_base_01
 server.port=8081
------------------------------
+==============================================
+
 |SPRING JPA|
 Aller dans Database (à droite) > DataSource > PostgresSql
 
